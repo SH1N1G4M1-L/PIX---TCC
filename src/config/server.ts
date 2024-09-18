@@ -85,9 +85,9 @@ app.post("/rota-recebimento", async (req, res) => {
      //   }
 
 
-     //   if (qy != 'myhash1234' && qy != 'myhash1234/pix') {
-     //       return res.status(401).json({ "unauthorized": "unauthorized" });
-      //  }
+        if (qy != 'myhash1234' && qy != 'myhash1234/pix') {
+            return res.status(401).json({ "unauthorized": "unauthorized" });
+        }
 
         console.log("Novo chamada a essa rota detectada:");
         console.log(req.body);
