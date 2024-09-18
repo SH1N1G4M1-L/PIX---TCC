@@ -73,50 +73,25 @@ app.get("/consulta-rafael-mac02-lojaFulanoDeTal", async (req, res) => {
 
 app.post("/rota-recebimento", async (req, res) => {
     try {
-        var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-        console.log("ip");
-        console.log(ip);
-        var qy = req.query.hmac;
-        console.log("query");
-        console.log(qy);
-
-        if (ip != '34.193.116.226') {
-            return res.status(401).json({ "unauthorized": "unauthorized" });
-        }
-
-
-        if (qy != 'myhash1234' && qy != 'myhash1234/pix') {
-            return res.status(401).json({ "unauthorized": "unauthorized" });
-        }
-
-        console.log("Novo chamada a essa rota detectada:");
+        console.log("Novo pix detectado:");
         console.log(req.body);
 
+        // console.log("valor:");
+        // console.log(req.body.valor);
+        // console.log("txid:");
+        // console.log(req.body.txid);
 
+        var txid = req.body.txid;
 
-        if (req.body.pix) {
+        valorDoPix = req.body.valor;
+        console.log("setado valor pix para maquina 2:" + req.body.valor);
 
-            console.log("valor do pix recebido:");
-            console.log(req.body.pix[0].valor);
-
-
-            if (req.body.pix[0].txid == "70dcz59b94cae9ccbm05") {
-                valorDoPix = req.body.pix[0].valor;
-                console.log("Creditando valor do pix na máquina 2");
-            }
-
-            if (req.body.pix[0].txid == "flaksdfjaskldfj") {
-                //valordoPixMaquina3 = req.body.pix[0].valor;
-                //console.log("Creditando valor do pix na máquina 3");
-            }
-
-
-        }
+        console.log(req.body.valor);
     } catch (error) {
         console.error(error);
         return res.status(402).json({ "error": "error: " + error });
     }
-    return res.status(200).json({ "ok": "ok" });
+    return res.status(200).json({ "mensagem": "ok" });
 });
 
 
