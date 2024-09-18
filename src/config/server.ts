@@ -80,9 +80,9 @@ app.post("/rota-recebimento", async (req, res) => {
         console.log("query");
         console.log(qy);
 
-     //   if (ip != '34.193.116.226') {
-     //       return res.status(401).json({ "unauthorized": "unauthorized" });
-     //   }
+        if (ip != '34.193.116.226') {
+            return res.status(401).json({ "unauthorized": "unauthorized" });
+        }
 
 
         if (qy != 'myhash1234' && qy != 'myhash1234/pix') {
