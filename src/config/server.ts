@@ -81,9 +81,9 @@ app.post("/rota-recebimento", async (req, res) => {
         // console.log("txid:");
         // console.log(req.body.txid);
 
-        var txid = req.body.txid;
+        var txid = req.body.pix.txid;
 
-        valorDoPix = req.body.valor;
+        valorDoPix = req.body.pix.valor;
         console.log("setado valor pix para maquina 2:" + req.body.valor);
 
         console.log(req.body.valor);
