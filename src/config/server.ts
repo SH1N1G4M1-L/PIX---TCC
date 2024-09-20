@@ -73,12 +73,12 @@ app.get("/consulta-rafael-mac02-lojaFulanoDeTal", async (req, res) => {
 
 app.post("/rota-recebimento", async (req, res) => {
     try {
-        var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-        console.log("ip");
-        console.log(ip);
-        var qy = req.query.hmac;
-        console.log("query");
-        console.log(qy);
+    //    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    //    console.log("ip");
+    //    console.log(ip);
+    //    var qy = req.query.hmac;
+    //    console.log("query");
+    //    console.log(qy);
 
     //    if (ip != '34.193.116.226') {
     //        return res.status(401).json({ "unauthorized": "unauthorized" });
